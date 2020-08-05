@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+
+    <title>Gerador de Lero-Lero!</title>
+
+    <link rel="stylesheet" type="text/css" href="lerolero.css" />
+</head>
+<body>
+<!--
+ O FABULOSO GERADOR DE LERO-LERO VERSÃO JAVASCRIPT (c)2001-2004 by Padre Levedo
+
+ Se quiser usar o código, use; porém deixe intacta esta nota de autoria!
+-->
+<form method="post" action="#">
+    <p>
+        <label for="linhas">Quantas frases?</label>
+        <input type='text' name="linhas" id="linhas" value="5" />
+    </p>
+
+    <input type='button' value="Gerar!" id="btn-gerar" />
+</form>
+
+<div id="container"></div>
+
+<script type="text/javascript" src="lerolero.js"></script>
+<script type="text/javascript">
+    (function() {
+        document.getElementById('btn-gerar').addEventListener('click', function() {
+            const leroLero = generateLeroLero(document.getElementById('linhas').value);
+
+            document.getElementById('container').innerHTML = [
+                '<hr />',
+                '<p>', leroLero.join('</p><p>'), '</p>'
+            ].join('');
+        });
+    })();
+</script>
+</body>
+</html>
